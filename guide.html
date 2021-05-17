@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="a tilde instance ~ running on a raspberry pi since 2020">
+  <title>liminalismo</title>
+  <link rel=stylesheet href="guide.css">
+</head>
+
+<body>
+  <h1>Getting started & FAQ</h1>
+  <!-- TABLE OF CONTENTS -->
+  <div id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#tildeverse">What is a tilde?</a></li>
+      <li><a href="#shell">Basic shell usage</a></li>
+      <li><a href="#html">Building a website</a></li>
+      <li><a href="#filesystem">Posting your website and interacting with the server</a></li>
+      <li><a href="#netiquette">Netiquette</a></li>
+      <li><a href="#mail">E-mail addresses and aliases</a></li>
+      <li><a href="#social">Being social on the tildeverse</a></li>
+    </ul>
+  </div>
+
+  <!-- CONTENTS -->
+  <div id="contents">
+    <h3><a name="tildeverse">What is a tilde?</a></h3>
+    <p>A tilde (sometimes called a pubnix) is a public unix computer. This computer acts as a server, that is, a computer that serves content on the web, so other people can access it from somewhere on the internet. This includes you! You can access
+      this computer from your physical computer, so you can see the stuff you host from a browser (for websites) or a client that can parse the files (for everything else, which is too huge a list to write down), and also access the system they are
+      hosted in, through both the terminal and some graphic interfaces.</p>
+
+    <p>The reason they're called tildes is a reference to the fact that user home directories in Unix are always prefaced by a tilde symbol (~) in the terminal-</p>
+
+    <p>There are other tildes on the internet, and there's a hub for them in <a href="https://tildeverse.org">tildeverse.org</a>. There are services that all tilde users can access and that help tildezens interact with others on the 'verse.</p>
+
+    <h3><a id="shell">Basic shell usage</a></h3>
+    <p>To interact with liminalismo, you can use either a terminal or a GUI (Graphic User Interface); sitting in front of a black screen where everything you do has to be done through text can be very intimidating for someone who hasn't used a
+      command-line interface before, but it genuinely makes things quite painless once you get the hang of it. That's why this section exists: we want to give you a primer to the basic commands you'll be using to interact with the tilde.</p>
+    <ol>
+      <li>
+        Logging into your account
+        <p>To log into your account from the terminal, you'll be using <code lang="sh">SSH</code>, a protocol that allows you to connect to remote computers securely. When you open the terminal, make sure you have SSH installed by running the <code
+            lang="sh">apt-get install</code> command. Once you've installed it or made sure it was already there, connect to the tilde by running <code lang="sh">ssh [your-username]@liminalismo.com</code></p>
+        <p>It will then tell you the ECSDA fingerprint (make sure the same as the one in the footer of our page) and ask if you want to connect, to which you can say yes if the fingerprints are the same.</p>
+        <p>It will ask you for your password; if it's the first time you're connecting, put in the one we e-mailed to you (see how to change your password in the next heading), or put your own if you've already set one, and hit enter. Don't worry if
+          nothing shows up in the terminal, the characters are hidden for privacy! You are still typing.</p>
+        <p>Voilà! You're now inside the server, you've hacked the mainframe and are riding the internet supersubway. Welcome!</p>
+
+      </li>
+      <li>Changing your password
+      <p>Once you're inside the server, you can change your account's password by typing <code lang="sh">passwd</code>.</p>
+      <p>The command-line is the only way to change your password without an admin intervening, so we recommend using it at least for this. If you forget your password, contact an admin through <a
+          href="mailto:tilde@liminalismo.com">tilde@liminalismo.com</a> and they will generate a new one.</p></li>
+      <li>Directories (folders)
+        <p>Now that you're inside the system, the most useful commands to have at hand are the ones that allow you to interact with your directories, which is what folders are called.</p>
+        <ul>
+          <li><p>To <em>list</em> the folders in the directory you are in: <code lang="sh">ls -la</code></p></li>
+          <li><p>To <em>enter</em> a folder: <code lang="sh">cd [name of the folder]/[full route to the folder, if you're not on the parent folder already]</code></p></li>
+          <li><p>To <em>create</em> a folder: <code lang="sh">mkdir [name of folder]</code></p></li>
+        </ul>
+      </li>
+      <li>Changing permissions for files and folders</li>
+      <li>Editing files on the terminal</li>
+    </ol>
+    <hr>
+    <p>You can see
+      how to interact with a GUI in the <a href="#filesystem">filesystem section</a> on this FAQ; to install a shell on Windows, follow <a href="https://itsfoss.com/install-bash-on-windows/">this</a> tutorial.</p>
+    <h3><a id="html">Building a website</a></h3>
+    <p>The main way tildezens communicate with the people outside their server is through their personal websites, which in our tilde's case are accessible in-browser through liminalismo.com/~<em>username</em> and listed in our homepage's
+      directory. Not all code can be parsed by a browser, but pages written in HTML can, and that's why it's the base language most people use to build their sites.</p>
+    <p>Let's look at the basic building blocks of a simple site: HTML, CSS and Javascript.*
+    <p>
+    <ul>
+      <li><em>HTML:</em> It's the language in which the website's <em>content</em> is written, which means that the document that holds the page's <em>content</em> and <em>structure</em> will be written in HTML. It's mostly written in plain (also
+        called natural) language enclosed by <em>tags</em>, which are elements that tell you what role do the words inside them fulfill inside the page. If you want to see an example of the way HTML looks, you can right-click this page and select the
+        option to see the website's source code, where you'll access this page's .html source.</li>
+      <li><em>CSS:</em> It's the language that styles the HTML content; in other words: HTML looks like plain text on a white background, and CSS is what makes it look the way you want by adding colors, fonts, shapes... It's a very versatile
+        language. It's made up of selectors, properties and functions: the element that tells you what the style applies to, the style that it applies to the selector and the (optional, more advanced) value that you can use in some properties to
+        create dynamic styles. If you want to see how a CSS document looks, you can right-click this page and select the option to inspect element. In the Sources tab, you can see this page's .css stylesheet.</li>
+      <li><em>Javascript:</em> It's the language that tells the styled content how to behave. This is the most complex out of the three, but it's still quite simple and easy to learn. It makes your static website become dynamic by making the elements
+        in HTML and the styles in CSS behave in different ways depending on how the person interacts with the page. We have opted to keep this simple and this page does not use Javascript, but <a href="https://i.stack.imgur.com/G2Shv.png">here's an
+          example</a> of how Javascript code looks.</li>
+    </ul>
+    <hr>
+    <p>* If you know your way around computers, you'll realize this is paring it down a lot, but bear with us, as this is meant to be a guide for beginners and it's important to take it one step at a time.</p>
+    <hr>
+    <p>If you want to learn how to use these three languages, we wholeheartedly recommend checking out the resources at <a href="https://www.w3schools.com/">W3Schools</a>, which are very accessible to beginners and immensely thorough. You can also
+      ask <a href="https://liminalismo.com/~izzy">~izzy</a> to help you out, if the amount of content is too daunting.</p>
+
+
+    <h3><a id="filesystem">Posting your website and interacting with the server</a>
+    </h3>
+    <p>Every user on liminalismo has an user directory within the system, which is a folder that contains all your files and that only you can interact with, unless you give other users permission. You have two different ways to access that folder:
+      through a terminal, or through a GUI (Graphic User Interface). If you're on a system that uses the bash shell, like Linux or OSX, you can use the system terminal; to install a bash shell on Windows, tou can follow <a
+        href="https://itsfoss.com/install-bash-on-windows/">this</a> tutorial. As for GUIs, we recommend using <a href="https://filezilla-project.org/download.php?show_all=1">FileZilla</a>, which is open source, intuitive and available for most
+      operating systems.</p>
+
+    <p>Your website is hosted in the public_html folder, which is a subdirectory in your home folder. Any files you upload there will be served through a browser when you look up liminalismo.com/~your-username. To access this folder and upload the
+      files:</p>
+    <ul>
+      <li>
+        <h4>Terminal:</h4>
+        <ul>
+          <li> Using nano editor: <p><code lang="sh">ssh yourusername@liminalismo.com</code> > cd <code lang="sh">cd public_html</code> > <code lang="sh">nano nameofyourfile.filetype</code> [index.html] > paste the contents of your code, and save
+              with Ctrl+X > Y > Enter.</p>
+          </li>
+          <li>Using a git repository:<p><code lang="sh">git init</code> > <code lang="sh">git remote add [shortname for the remote] [URL of the repository, hosted on Github/Gitlab/Gitea etc]</code> > <code lang="sh">git fetch [remote
+                shortname]</code> > <code lang="sh">git pull [remote shortname] [branch name]</code>
+            <p>
+            <p>Whenever you want to update your page, save your changes on your source repo and repeat the fetch and pull steps only.</p>
+          </li>
+        </ul>
+      <li>
+        <h4>GUI:</h4>
+        <p>On FileZilla, enter the following information on the top bar or site manager [Ctrl+S]</p>
+        <ul>
+          <li>Hostname: liminalismo.com</li>
+          <li>Username: [your username]</li>
+          <li>Password: [your password]</li>
+          <li>Port: 22</li>
+        </ul>
+        <p>You will then be connect to your user folder, where you'll see the public_html subdirectory. Simply drag and drop the files from your computer to upload them to the server.</p>
+      </li>
+    </ul>
+
+    <h3><a id="netiquette">Netiquette</a></h3>
+    <p>We normally call the preferred way to use tildes "netiquette". Using a public, shared computer is slightly different than using your own computer or a VPS: Its CPU, RAM, storage and bandwidth are shared by every user, which means that hogging
+      resources (downloading heavy files, installing resource-intensive software, cryptomining) will have a huge negative impact upon the community. In the liminalismo tilde's case, there are other concerns, like the fact that it's a physical
+      computer on one of the admins' home and they are paying the bills for electricity costs and internet usage, which means that a big strain on the small host has financial consequences for them, and illegal activity (including piracy) puts them
+      at risk with law enforcement.</p>
+    <p>TL;DR don't use this server in your illegalities, and keep the content light so that the technical performance goes smoothly for everyone.</p>
+    <h3><a id="mail">E-Mail addresses and aliases</a></h3>
+    <p>Every user on the liminalismo system gets a custom e-mail address on <em>yourusername</em>@liminalismo.com that you can give out to people from outside the server. All the mail sent to that address will be forwarded to the (external) e-mail
+      account you gave us when you asked to join the tilde.</p>
+    <p>If you want to reply from that e-mail address you will have to set up an alias on your external mail account; a quick search for "how to set up an alias in Gmail/Outlook/Mailbox/etc" on your engine of choice will bring up instructions on how
+      to do so. Remember to use the SMTP server of your e-mail provider, as this tilde is not a mail server itself.</p>
+    <h3><a id="social">Being social on the tildeverse</a></h3>
+    <p>Often, when people are presented with the concept of a tilde, they will ask "How is sharing a computer to host websites social in any way?", which I believe is a fair question, since the way most social spaces operate nowadays exist solely for
+      the purpose of socializing, and coding on your (personal) computer and publishing a (personal) site, regardless of the fact that there are other folders from other people on the same computer doesn't seem terribly interactive. That's where the
+      larger Tildeverse comes in.</p>
+
+    <p>As we mentioned on the first section of this page, there is a hub for the tilde servers on the internet. There are services that exist as a common space among all the tildes so the userbases can interact among them and with each other. These
+      include text and voice chatrooms (IRC and Mumble), a social network (Mastodon, Pleroma), videogame servers (Minecraft and Factorio... you can check out the links to those and more services for tildezens on the <a
+        href="https://tildeverse.org">tildeverse.org</a> homepage.</p>
+    <div>
+</body>
+
+</html>
